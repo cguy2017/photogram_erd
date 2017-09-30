@@ -47,8 +47,6 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-
-    @comment.user_id = params[:user_id]
     @comment.photo_id = params[:photo_id]
 
     save_status = @comment.save

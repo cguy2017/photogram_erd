@@ -9,7 +9,13 @@
       <dd><%= @favorite.photo_id %></dd>
 
       <dt>User</dt>
-      <dd><%= @favorite.user_id %></dd>
+      <dd>
+        <% if @favorite.user.present? %>
+          <a href="/users/<%= @favorite.user_id %>">
+            <%= @favorite.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

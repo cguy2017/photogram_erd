@@ -27,6 +27,15 @@
         <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email, @photo.user_id), :class => "form-control") %>
       </div>
 
+      <!-- Label and input for favorites_id -->
+      <div class="form-group">
+        <label for="favorites_id" class="control-label">
+          Favorites
+        </label>
+
+        <%= select_tag(:favorites_id, options_from_collection_for_select(Favorite.all, :id, :photo_id, @photo.favorites_id), :class => "form-control") %>
+      </div>
+
       <button class="btn btn-warning">
         Update Photo
       </button>

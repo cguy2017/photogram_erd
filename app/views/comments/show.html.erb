@@ -15,7 +15,13 @@
       </dd>
 
       <dt>Photo</dt>
-      <dd><%= @comment.photo_id %></dd>
+      <dd>
+        <% if @comment.photo.present? %>
+          <a href="/photos/<%= @comment.photo_id %>">
+            <%= @comment.photo.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

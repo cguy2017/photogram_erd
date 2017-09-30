@@ -53,6 +53,18 @@
       <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
     </div>
 
+<div class="form-group">
+  <%= f.label :photo_id, "Favorite Photo" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :favorites_photo_id_gteq, :class => "form-control", :placeholder => "Favorite Photo greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :favorites_photo_id_lteq, :class => "form-control", :placeholder => "Favorite Photo less than or equal to" %>
+    </div>
+  </div>
+</div>
+
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/photos" class="btn btn-default btn-block mb-1">Clear filters</a>
@@ -68,6 +80,7 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>User</th>
+        <th>Favorites</th>
         <th>Actions</th>
       </tr>
 
@@ -77,6 +90,13 @@
           <% if photo.user.present? %>
             <a href="/users/<%= photo.user.id %>">
               <%= photo.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if photo.favorites.present? %>
+            <a href="/favorites/<%= photo.favorites.id %>">
+              <%= photo.favorites.photo_id %>
             </a>
           <% end %>
         </td>
